@@ -1,5 +1,6 @@
 # -*Functions Module
 import math
+import pandas as pd
 
 def castToFloat(points):
     floatPoints = []
@@ -7,6 +8,23 @@ def castToFloat(points):
         floatPoints.append(float(points[i]))
     return floatPoints
 
+def splitFile(filename,rowNum,startOrEnd):
+    data = pd.read_csv(filename)
+    rowList = []
+    if startOrEnd == "start":
+        df = data.head(rowNum)
+        rowList = df.values.tolist()
+    else:
+        df = data.tail(rowNum)
+        rowList = df.values.tolist()
+    return rowList
+
+def getheadData(filename):
+    data = pd.read_csv(filename)
+    header = data.columns.tolist()
+    header.pop(0)
+    return header
+        
 def euclidean(point1,point2):
     sumation = 0.0
     if len(point1) != len(point2):
