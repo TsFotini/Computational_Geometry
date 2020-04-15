@@ -56,8 +56,10 @@ def classify(dataset,query,k):
     res = max(set(scoreKeeper), key = scoreKeeper.count)
     query.updateGroup(res)
     
-def predictions(queryset,filename):
+def predictions(dataset,queryset,filename,k):
     header = getheadData(filename)
+    for i in range(0,len(queryset.elements)):
+        classify(dataset,queryset.elements[i],k)
     with open("predict.csv", 'w', newline='') as myfile:
         for i in range(0,len(queryset.elements)):
             queryset.elements[i].points.append(queryset.elements[i].group)

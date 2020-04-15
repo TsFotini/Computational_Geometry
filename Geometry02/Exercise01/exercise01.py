@@ -16,9 +16,7 @@ if __name__ == "__main__":
         if k > len(dtSet.elements):
             print("k is too large!")
         else:
-            for i in range(0,len(qrSet.elements)):
-                classify(dtSet,qrSet.elements[i],k)
-            predictions(qrSet,"Iris.csv")
+            predictions(dtSet,qrSet,"Iris.csv",k)
     else:
         datasetPoints = csvReader('trainingSet.csv')
         dataset = Dataset(datasetPoints)
@@ -27,6 +25,4 @@ if __name__ == "__main__":
         if k > len(dataset.elements):
             print("k is too large!")
         else:
-            for i in range(0,len(queryset.elements)):
-                classify(dataset,queryset.elements[i],k)
-            predictions(queryset,"testSet.csv")
+            predictions(dataset,queryset,"testSet.csv",k)
