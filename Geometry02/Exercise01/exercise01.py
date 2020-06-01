@@ -1,5 +1,5 @@
-# -*-Exercise 1
-from Dataset import csvReader,Dataset,classify,csvSplitReader,predictions
+# -*-Exercise 1 and 5
+from Dataset import csvReader,Dataset,csvSplitReader,predictions
 
 if __name__ == "__main__":
     #testing with my data 
